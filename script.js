@@ -85,6 +85,19 @@ darkModeToggle.addEventListener("change", function () {
     localStorage.setItem("darkMode", "disabled");
   }
 });
+
+// Función para cambiar el modo oscuro
+// function toggleDarkMode() {
+//   var body = document.body;
+//   body.classList.toggle("dark-mode");
+
+//   // Almacenar el estado del modo oscuro en el almacenamiento local
+//   if (body.classList.contains("dark-mode")) {
+//     localStorage.setItem("darkMode", "enabled");
+//   } else {
+//     localStorage.setItem("darkMode", "disabled");
+//   }
+// }
 // Verificar el estado almacenado del modo oscuro al cargar la página
 window.addEventListener("load", function () {
   var darkMode = localStorage.getItem("darkMode");
@@ -96,4 +109,20 @@ window.addEventListener("load", function () {
 });
 // Event listener para el interruptor de modo oscuro
 var darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.addEventListener("change", toggleDarkMode);
+//darkModeToggle.addEventListener("change", toggleDarkMode);
+
+////////////////////////////////////////////Boton de favorito /////////////////
+
+var favoriteButtons = document.querySelectorAll(".favorite-button");
+
+favoriteButtons.forEach(function (button) {
+  button.addEventListener("click", function (event) {
+    // Lógica para manejar el evento de clic del botón de favorito
+    // Aquí puedes capturar la cita y el autor correspondiente a esta cita favorita
+    var quoteText =
+      event.target.parentNode.querySelector(".quote-text").textContent;
+    var quoteAuthor =
+      event.target.parentNode.querySelector(".quote-author").textContent;
+    console.log(quoteText, quoteAuthor);
+  });
+});
